@@ -1,0 +1,44 @@
+%PREAMBLE 
+
+\documentclass[a4paper]{article} %Defines the class of the document
+\usepackage[T1]{fontenc} %Defines the font encoding used
+
+%SPECIAL CHARACTERS
+\usepackage{fontspec} %Used for special characters; requires XeLaTeX or LuaLaTeX
+
+%PAGE MARGINS
+\usepackage{geometry}
+ \geometry{
+ left=30mm,
+ right=30mm,
+ bmargin=30mm,
+ footskip=5mm,
+ }
+ 			
+%LANGUAGE SUPPORT
+\usepackage[german,french,american]{babel} %Supports typesetting in different languages
+
+%BIBLIOGRAPHY
+\usepackage[autostyle]{csquotes} %A package supporting different quotation styles
+\usepackage[style=chicago-notes,backend=bibtex8,% 
+bibencoding=inputenc,url=false,eprint=false,isbn=false,doi=false,sorting=nyt,journalabbrev=true]{biblatex} %A package implementing bibliographic collections in the document
+
+\bibliography{test-bib} %The .bib file containing all the references
+
+%END OF PREAMBLE
+
+% -----------------------------------------------------------------------
+
+\begin{document}
+
+
+\title{My Bibliography}
+
+\author{Jane Doe}
+\maketitle
+
+\nocite{*}
+
+\printbibliography[notkeyword=nosample,title=Reference list]
+
+\end{document}
