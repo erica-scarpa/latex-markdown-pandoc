@@ -2,9 +2,18 @@
 
 \documentclass[a4paper]{article} %Defines the class of the document
 \usepackage[T1]{fontenc} %Defines the font encoding used
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks=true,
+     linkcolor=blue,
+     filecolor=blue,
+     citecolor = black,      
+     urlcolor=blue,
+     }
 
 %SPECIAL CHARACTERS
 \usepackage{fontspec} %Used for special characters; requires XeLaTeX or LuaLaTeX
+\setmainfont{Times New Roman} %To set a specific font
 
 %PAGE MARGINS
 \usepackage{geometry}
@@ -20,25 +29,33 @@
 
 %BIBLIOGRAPHY
 \usepackage[autostyle]{csquotes} %A package supporting different quotation styles
-\usepackage[style=chicago-notes,backend=bibtex8,% 
-bibencoding=inputenc,url=false,eprint=false,isbn=false,doi=false,sorting=nyt,journalabbrev=true]{biblatex} %A package implementing bibliographic collections in the document
+\usepackage[notes,backend=bibtex8,isbn=false,annotation,sorting=nyt]{biblatex-chicago} %A package implementing bibliographic collections in the document
+
+% TO CHANGE SORTING
+% sorting=ydnt EQUALS year (descending), name, title
+% sorting=none EQUALS none
+% sorting=nyt EQUALS name, year, title
 
 \bibliography{test-bib} %The .bib file containing all the references
 
 %END OF PREAMBLE
 
+
 % -----------------------------------------------------------------------
 
 \begin{document}
 
-
-\title{A Bibliography}
+\title{Annotated Bibliography}
 
 \author{Nancy Drew}
+\maketitle
+    
+
 \maketitle
 
 \nocite{*}
 
 \printbibliography[notkeyword=nosample,title=Reference list]
+
 
 \end{document}
