@@ -1,0 +1,1 @@
+pandoc -s annotated-bibliography.md --reference-doc=model.docx --citeproc -o test.docx
